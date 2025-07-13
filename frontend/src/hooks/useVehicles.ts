@@ -14,5 +14,5 @@ export const useVehicles = () =>
   useQuery<VehicleSummary[]>({
     queryKey: ['vehicles'],
     queryFn: () => api.get('/vehicles').then((r) => r.data),
-    refetchInterval: 10000, 
+    refetchInterval: 60000, 
   });
