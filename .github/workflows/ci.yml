@@ -11,14 +11,29 @@ jobs:
     name: Backend · Maven Tests
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: fleet
+          POSTGRES_PASSWORD: fleet
+          POSTGRES_DB: fleetpulse
+        ports: [5432:5432]
+        options: >-
+          --health-cmd="pg_isready -U fleet"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=5
+
     defaults:
       run:
-        working-directory: backend/api      
+        working-directory: backend/api  
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
@@ -34,15 +49,16 @@ jobs:
 
     defaults:
       run:
-        working-directory: frontend         
+        working-directory: frontend
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: npm                       
+          cache: npm
           cache-dependency-path: frontend/package-lock.json
 
       - name: Install deps
