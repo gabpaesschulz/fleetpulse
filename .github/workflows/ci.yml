@@ -75,7 +75,7 @@ jobs:
 
       - name: Vitest coverage
         run: |
-          npm run coverage       # gera coverage/lcov.info
+          npm run coverage       
           cp coverage/lcov.info ${{ github.workspace }}/frontend-lcov.info
 
       - name: Upload coverage
