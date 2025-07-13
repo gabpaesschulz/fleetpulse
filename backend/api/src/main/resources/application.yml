@@ -1,16 +1,37 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/fleetpulse
-    username: fleet
-    password: fleet
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/fleetpulse}
+    username: ${SPRING_DATASOURCE_USERNAME:fleet}
+    password: ${SPRING_DATASOURCE_PASSWORD:fleet}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: update          # cria/atualiza tabelas automaticamente
+      ddl-auto: update
+    open-in-view: false
     properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    open-in-view: false         # boa prática
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
 
-logging.level.org.hibernate.SQL: debug   # opcional p/ ver queries
+logging:
+  level:
+    org.hibernate.SQL: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  metrics:
+    tags:
+      application: fleetpulse-api
+  tracing:
+    sampling:
+      probability: 1.0
+  otlp:
+    endpoint: http://otel-collector:4317
+    metrics:
+      export:
+        enabled: true
+    tracing:
+      export:
+        enabled: true
