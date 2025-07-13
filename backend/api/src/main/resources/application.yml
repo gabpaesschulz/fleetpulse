@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fleetpulse
+    username: fleet
+    password: fleet
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update          # cria/atualiza tabelas automaticamente
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false         # boa prática
+
+logging.level.org.hibernate.SQL: debug   # opcional p/ ver queries
