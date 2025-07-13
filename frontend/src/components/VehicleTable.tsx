@@ -1,6 +1,7 @@
 'use client';
 import { VehicleSummary } from '@/hooks/useVehicles';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 type Props = { vehicles: VehicleSummary[] };
 
@@ -26,7 +27,11 @@ export default function VehicleTable({ vehicles }: Props) {
       <tbody>
         {vehicles.map((v) => (
           <tr key={v.id} className="border-b">
-            <td className="py-1">{v.plate}</td>
+            <td className="py-1">
+              <Link href={`/vehicle/${v.plate}`} className="text-blue-600 hover:underline">
+                {v.plate}
+              </Link>
+            </td>
             <td className="py-1">{v.driverName}</td>
             <td className="py-1">
               {v.lastSeen ? new Date(v.lastSeen).toLocaleTimeString() : '—'}
