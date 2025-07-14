@@ -15,7 +15,7 @@
 | **Live Map** | Veículos atualizados a cada 10 seg com **react‑leaflet** |
 | **Kafka event‑driven** | Position events entram em um tópico, API publica SSE |
 | **PostgreSQL** | Persistência de eventos e materialized view de status |
-| **Observabilidade first‑class** | Micrometer → OTEL → Prometheus → Grafana (dashboards auto‑provisionados) |
+| **Observabilidade first‑class** | Prometheus → Grafana (dashboards) |
 | **CI / CD completo** | GitHub Actions: testes (JUnit & Vitest), build imagens Docker |
 
 ---
@@ -115,10 +115,9 @@ cd frontend && npm run test
 
 ## 🛣️ Roadmap
 
-- [ ] Alertas Slack (erro rate & latência)
+- [ ] Alertas Slack (erro rate & latência)  
 - [ ] Tracing visual via Jaeger / Tempo
 - [ ] CD: publicar imagens em GHCR e deploy no Fly.io
-- [ ] Mobile client (React Native) para motoristas
 
 ---
 
