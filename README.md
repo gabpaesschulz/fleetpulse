@@ -1,8 +1,6 @@
 # FleetPulse 🚚📡
 
 ![build](https://github.com/gabpaesschulz/fleetpulse/actions/workflows/ci.yml/badge.svg)
-![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/gabpaesschulz/69fe08a66ce42d01a2905aea60bd913d/raw/badge.json)
-![docker pulls](https://img.shields.io/docker/pulls/gabpaesschulz/fleetpulse-api?label=docker%20pulls)
 
 *A real‑time fleet monitoring platform built with **Java 21**, **Spring Boot 3**, **React / Next.js 15**, **Kafka (Redpanda)**, **PostgreSQL 16**, and a full **Prometheus + Grafana** observability stack.*
 
