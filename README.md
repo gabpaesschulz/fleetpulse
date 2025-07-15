@@ -111,14 +111,6 @@ cd frontend && npm run test
 
 ---
 
-## 🛣️ Roadmap
-
-- [ ] Alertas Slack (erro rate & latência)  
-- [ ] Tracing visual via Jaeger / Tempo
-- [ ] CD: publicar imagens em GHCR e deploy no Fly.io
-
----
-
 ## 📝 Licença
 
 MIT — sinta‑se livre para usar, clonar e enviar PRs! 🙌
